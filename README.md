@@ -1,3 +1,3 @@
-# cms_chat_app
+# CMS Chat App - Zalo UTE
 
 A new Flutter project.
