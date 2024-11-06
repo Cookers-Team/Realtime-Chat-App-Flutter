@@ -42,6 +42,15 @@ class UserService {
     return dto;
   }
 
+  Future<ResponseDto> getProfile() async {
+    final response = await _apiService.get(
+      "/v1/user/profile",
+      requiresAuth: true,
+    );
+    final dto = ResponseDto.fromJson(jsonDecode(response.body));
+    return dto;
+  }
+
   Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('accessToken');

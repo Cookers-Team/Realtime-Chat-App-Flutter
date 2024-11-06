@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class LoadingService {
   static BuildContext? _context;
   static bool _isLoading = false;
+  static bool get isLoading => _isLoading;
 
   static void init(BuildContext context) {
     _context = context;

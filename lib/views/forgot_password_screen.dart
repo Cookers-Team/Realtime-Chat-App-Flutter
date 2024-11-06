@@ -6,7 +6,6 @@ import 'package:cms_chat_app/core/validators.dart';
 import 'package:cms_chat_app/dto/response_dto.dart';
 import 'package:cms_chat_app/services/loading_service.dart';
 import 'package:cms_chat_app/services/user_service.dart';
-import 'package:cms_chat_app/views/login_screen.dart';
 import 'package:cms_chat_app/views/reset_password_screen.dart';
 import 'package:flutter/material.dart';
 

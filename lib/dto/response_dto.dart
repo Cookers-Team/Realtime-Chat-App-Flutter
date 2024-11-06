@@ -3,12 +3,16 @@ class ResponseDto {
   final String message;
   final dynamic data;
 
-  ResponseDto({required this.result, this.message = "", this.data});
+  ResponseDto({
+    required this.result,
+    String? message,
+    this.data,
+  }) : message = message ?? "";
 
   factory ResponseDto.fromJson(Map<String, dynamic> json) {
     return ResponseDto(
-      result: json['result'],
-      message: json['message'],
+      result: json['result'] ?? false,
+      message: json['message'] as String?,
       data: json['data'],
     );
   }
