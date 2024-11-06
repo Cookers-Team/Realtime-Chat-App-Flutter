@@ -1,4 +1,4 @@
-import 'package:cms_chat_app/services/login_service.dart';
+import 'package:cms_chat_app/services/user_service.dart';
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 import 'login_screen.dart';
@@ -9,7 +9,7 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  final LoginService _loginService = LoginService();
+  final UserService _loginService = UserService();
 
   @override
   void initState() {
