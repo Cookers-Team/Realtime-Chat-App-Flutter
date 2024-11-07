@@ -27,7 +27,7 @@ class ConfirmationDialog extends StatelessWidget {
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 350),
+        constraints: BoxConstraints(maxWidth: 300),
         child: Padding(
           padding: const EdgeInsets.all(24.0),
           child: Column(
