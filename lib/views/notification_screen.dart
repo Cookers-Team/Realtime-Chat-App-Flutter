@@ -1,6 +1,8 @@
 import 'package:cms_chat_app/components/confirmation_dialog.dart';
 import 'package:cms_chat_app/components/custom_toast.dart';
+import 'package:cms_chat_app/components/loading_container.dart';
 import 'package:cms_chat_app/components/notification_list.dart';
+import 'package:cms_chat_app/components/tabbar.dart';
 import 'package:cms_chat_app/models/notification.dart';
 import 'package:cms_chat_app/services/notification_service.dart';
 import 'package:flutter/material.dart';
@@ -112,39 +114,8 @@ class _NotificationScreenState extends State<NotificationScreen>
         children: [
           Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                color: Colors.grey[300],
-                child: TabBar(
-                  dividerColor: Colors.transparent,
-                  controller: _tabController,
-                  indicator: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  indicatorPadding: const EdgeInsets.symmetric(horizontal: 12),
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.grey[500],
-                  labelStyle: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  unselectedLabelStyle: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  tabs: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 70),
-                      child: Tab(text: 'Chưa đọc'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 70),
-                      child: Tab(text: 'Đã đọc'),
-                    ),
-                  ],
-                ),
-              ),
+              buildTabBarContainer(widget.primaryColor, widget.secondaryColor,
+                  _tabController, ['Chưa đọc', 'Đã đọc']),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -205,16 +176,7 @@ class _NotificationScreenState extends State<NotificationScreen>
               ),
             ],
           ),
-          if (_isLoading)
-            Container(
-              color: Colors.black26,
-              child: Center(
-                child: CircularProgressIndicator(
-                  valueColor:
-                      AlwaysStoppedAnimation<Color>(widget.primaryColor),
-                ),
-              ),
-            ),
+          if (_isLoading) buidLoadingContainer(widget.primaryColor),
         ],
       ),
     );

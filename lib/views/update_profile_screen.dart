@@ -128,7 +128,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: widget.primaryColor,
+      backgroundColor: widget.secondaryColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -298,9 +298,9 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     child: ElevatedButton(
                       onPressed: _isLoading ? null : _handleSubmit,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: widget.primaryColor,
-                        foregroundColor: Colors.white,
-                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        backgroundColor: Colors.white,
+                        foregroundColor: widget.primaryColor,
+                        padding: const EdgeInsets.symmetric(vertical: 20),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
@@ -319,7 +319,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                               ),
                             )
                           : const Text(
-                              'Cập nhật hồ sơ',
+                              'CẬP NHẬT',
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
