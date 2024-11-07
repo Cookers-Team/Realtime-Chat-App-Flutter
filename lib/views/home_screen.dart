@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
     'Xét duyệt bài đăng',
     'Tùy chỉnh hệ thống',
     'Thống kê chi tiết',
+    'Thông báo của tôi',
     'Thông tin cá nhân',
   ];
 
@@ -95,6 +96,32 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(height: 16),
             Text(
               'Thống kê',
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF1565C0),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+    Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF1E88E5).withOpacity(0.1), Colors.white],
+        ),
+      ),
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.notifications_none, size: 64, color: Color(0xFF1565C0)),
+            SizedBox(height: 16),
+            Text(
+              'Thông báo',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -186,6 +213,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           label: 'Thống kê',
                         ),
                         BottomNavigationBarItem(
+                          icon: Icon(Icons.notifications_none),
+                          label: 'Thông báo',
+                        ),
+                        BottomNavigationBarItem(
                           icon: Icon(Icons.account_circle),
                           label: 'Cá nhân',
                         ),
@@ -226,6 +257,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       NavigationRailDestination(
                         icon: Icon(Icons.bar_chart),
                         label: Text('Thống kê'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.notifications_none),
+                        label: Text('Thông báo'),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.account_circle),

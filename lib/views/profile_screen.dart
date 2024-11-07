@@ -1,9 +1,12 @@
 import 'package:cms_chat_app/components/button.dart';
 import 'package:cms_chat_app/components/confirmation_dialog.dart';
+import 'package:cms_chat_app/components/info_item.dart';
+import 'package:cms_chat_app/components/info_section.dart';
 import 'package:cms_chat_app/dto/response_dto.dart';
 import 'package:cms_chat_app/models/profile.dart';
 import 'package:cms_chat_app/services/user_service.dart';
 import 'package:cms_chat_app/views/login_screen.dart';
+import 'package:cms_chat_app/views/update_profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -29,14 +32,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void _navigateToEditProfile() async {
-    // final updated = await Navigator.push(
-    //   context,
-    //   MaterialPageRoute(
-    //       builder: (context) => EditProfileScreen(profile: _profile!)),
-    // );
-    // if (updated == true) {
-    //   _fetchProfileData();
-    // }
+    final updated = await Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => UpdateProfileScreen(profile: _profile!)),
+    );
+    if (updated == true) {
+      _fetchProfileData();
+    }
   }
 
   void _logout() async {
@@ -61,17 +64,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             children: [
               Container(
+                color: Color(0xFF1E88E5),
                 width: double.infinity,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.bottomRight,
-                    end: Alignment.topLeft,
-                    colors: [
-                      Color(0xFF1565C0),
-                      Color(0xFF1E88E5),
-                    ],
-                  ),
-                ),
                 child: SafeArea(
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -137,25 +131,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildInfoSection(
+                    buildInfoSection(
                       'Thông tin cá nhân',
                       [
-                        _buildInfoItem(
+                        buildInfoItem(
                           Icons.email_outlined,
                           'Email',
                           _profile!.email,
                         ),
-                        _buildInfoItem(
+                        buildInfoItem(
                           Icons.badge_outlined,
                           'Mã sinh viên',
                           _profile!.studentId,
                         ),
-                        _buildInfoItem(
+                        buildInfoItem(
                           Icons.phone_outlined,
                           'Số điện thoại',
                           _profile!.phone,
                         ),
-                        _buildInfoItem(
+                        buildInfoItem(
                           Icons.cake_outlined,
                           'Ngày sinh',
                           _profile!.birthDate != null
@@ -163,11 +157,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               : 'Chưa cập nhật',
                           italic: _profile!.birthDate == null,
                         ),
-                        _buildInfoItem(
+                        buildInfoItem(
                           Icons.info_outline,
                           'Tiểu sử',
                           _profile!.bio ?? 'Chưa cập nhật',
                           italic: _profile!.bio == null,
+                        ),
+                        buildInfoItem(
+                          Icons.verified_user_outlined,
+                          'Vai trò',
+                          _profile!.role.name,
                         ),
                         SizedBox(height: 30),
                         Center(
@@ -221,83 +220,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       );
     }
-  }
-
-  Widget _buildInfoSection(String title, List<Widget> children) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF1565C0),
-          ),
-        ),
-        SizedBox(height: 16),
-        ...children,
-      ],
-    );
-  }
-
-  Widget _buildInfoItem(IconData icon, String label, String value,
-      {bool italic = false}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Container(
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 10,
-              offset: Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Container(
-              padding: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Color(0xFF1565C0).withOpacity(0.1),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Icon(
-                icon,
-                color: Color(0xFF1565C0),
-                size: 24,
-              ),
-            ),
-            SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    label,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                  SizedBox(height: 4),
-                  Text(
-                    value,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontStyle: italic ? FontStyle.italic : FontStyle.normal,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 }

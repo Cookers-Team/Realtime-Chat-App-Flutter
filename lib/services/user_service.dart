@@ -76,4 +76,27 @@ class UserService {
     await prefs.remove('accessToken');
     return false;
   }
+
+  Future<ResponseDto> updateProfile(
+      String displayName,
+      String? birthDate,
+      String? bio,
+      String? avatarUrl,
+      String? currentPassword,
+      String? newPassword) async {
+    final response = await _apiService.put(
+      "/v1/user/update-profile",
+      {
+        'displayName': displayName,
+        'birthDate': birthDate,
+        'bio': bio,
+        'avatarUrl': avatarUrl,
+        'currentPassword': currentPassword,
+        'newPassword': newPassword,
+      },
+      requiresAuth: true,
+    );
+    final dto = ResponseDto.fromJson(jsonDecode(response.body));
+    return dto;
+  }
 }
