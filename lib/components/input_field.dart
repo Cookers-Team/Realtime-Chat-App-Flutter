@@ -43,6 +43,7 @@ Widget buildInputField(
         if (validator != null) {
           return validator(value);
         }
+        return null;
       },
     ),
   );
