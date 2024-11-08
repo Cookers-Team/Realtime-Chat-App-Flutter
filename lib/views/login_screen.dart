@@ -2,7 +2,7 @@ import 'package:cms_chat_app/components/background.dart';
 import 'package:cms_chat_app/components/button.dart';
 import 'package:cms_chat_app/components/custom_toast.dart';
 import 'package:cms_chat_app/components/input_field.dart';
-import 'package:cms_chat_app/dto/response_dto.dart';
+import 'package:cms_chat_app/models/response_dto.dart';
 import 'package:cms_chat_app/services/loading_service.dart';
 import 'package:cms_chat_app/views/forgot_password_screen.dart';
 import 'package:flutter/material.dart';

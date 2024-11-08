@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:cms_chat_app/components/custom_toast.dart';
 import 'package:cms_chat_app/components/input_field_2.dart';
 import 'package:cms_chat_app/core/validators.dart';
-import 'package:cms_chat_app/dto/response_dto.dart';
+import 'package:cms_chat_app/models/response_dto.dart';
 import 'package:cms_chat_app/models/profile.dart';
 import 'package:cms_chat_app/services/file_service.dart';
 import 'package:cms_chat_app/services/user_service.dart';

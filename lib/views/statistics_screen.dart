@@ -1,47 +1,72 @@
-import 'package:cms_chat_app/components/charts.dart';
-import 'package:cms_chat_app/components/custom_card.dart';
+import 'package:cms_chat_app/components/conversation_stats.dart';
+import 'package:cms_chat_app/components/loading_container.dart';
+import 'package:cms_chat_app/components/post_stats.dart';
+import 'package:cms_chat_app/components/tabbar.dart';
+import 'package:cms_chat_app/components/user_stats.dart';
 import 'package:flutter/material.dart';
 
 class StatisticsScreen extends StatefulWidget {
+  final Color primaryColor;
+  final Color secondaryColor;
+
+  const StatisticsScreen({
+    Key? key,
+    this.primaryColor = const Color(0xFF1565C0),
+    this.secondaryColor = const Color(0xFF1E88E5),
+  }) : super(key: key);
+
   @override
   _StatisticsScreenState createState() => _StatisticsScreenState();
 }
 
-class _StatisticsScreenState extends State<StatisticsScreen> {
+class _StatisticsScreenState extends State<StatisticsScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Statistics"),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            // Bar Chart
-            buildChartCard(
-              'Bar Chart',
-              buildLineChart(
-                [
-                  {'x': 0, 'y': 10},
-                  {'x': 1, 'y': 15},
-                  {'x': 2, 'y': 7},
-                  {'x': 3, 'y': 20},
-                ],
-                Colors.blue,
-                ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
+      backgroundColor: Colors.grey[100],
+      body: Stack(
+        children: [
+          Column(
+            children: [
+              buildTabBarContainer(
+                widget.primaryColor,
+                widget.secondaryColor,
+                _tabController,
+                ['Người dùng', 'Nhóm trò chuyện', 'Bài viết'],
+                context,
+                20,
               ),
-            ),
-            SizedBox(height: 20),
-            buildCustomCard(
-              Icons.comment,
-              Colors.greenAccent,
-              'Bình luận',
-              68,
-              'Trung bình: 6.18/ngày',
-            ),
-          ],
-        ),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    UserStatWidget(),
+                    ConversationStatWidget(),
+                    PostStatWidget(),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          if (_isLoading) buidLoadingContainer(widget.primaryColor),
+        ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:cms_chat_app/services/api_services.dart';
-import 'package:cms_chat_app/dto/response_dto.dart';
+import 'package:cms_chat_app/models/response_dto.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserService {

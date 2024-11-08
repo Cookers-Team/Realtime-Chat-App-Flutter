@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:cms_chat_app/dto/response_dto.dart';
+import 'package:cms_chat_app/models/response_dto.dart';
 import 'package:cms_chat_app/services/api_services.dart';
 
 class NotificationService {

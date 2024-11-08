@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 
 Widget buildCustomCard(
   IconData icon,
-  Color iconBackgroundColor,
+  dynamic iconBackgroundColor,
   String title,
   double mainValue,
   String subtitle,
 ) {
   return Card(
     color: Colors.white,
-    elevation: 5,
+    elevation: 3,
     shadowColor: Colors.blue.withOpacity(0.5),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-    margin: const EdgeInsets.all(20),
+    margin: const EdgeInsets.symmetric(horizontal: 20),
     child: Padding(
       padding: const EdgeInsets.all(16.0),
       child: Row(
@@ -38,7 +38,7 @@ Widget buildCustomCard(
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+                  color: Colors.blue,
                 ),
               ),
               const SizedBox(height: 4),

@@ -2,7 +2,7 @@ import 'package:cms_chat_app/components/button.dart';
 import 'package:cms_chat_app/components/confirmation_dialog.dart';
 import 'package:cms_chat_app/components/info_item.dart';
 import 'package:cms_chat_app/components/info_section.dart';
-import 'package:cms_chat_app/dto/response_dto.dart';
+import 'package:cms_chat_app/models/response_dto.dart';
 import 'package:cms_chat_app/models/profile.dart';
 import 'package:cms_chat_app/services/user_service.dart';
 import 'package:cms_chat_app/views/login_screen.dart';

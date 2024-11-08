@@ -115,7 +115,7 @@ class _NotificationScreenState extends State<NotificationScreen>
           Column(
             children: [
               buildTabBarContainer(widget.primaryColor, widget.secondaryColor,
-                  _tabController, ['Chưa đọc', 'Đã đọc']),
+                  _tabController, ['Chưa đọc', 'Đã đọc'], context, 65),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
