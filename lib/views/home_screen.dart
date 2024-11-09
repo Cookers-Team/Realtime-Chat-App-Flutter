@@ -1,5 +1,6 @@
 import 'package:cms_chat_app/views/notification_screen.dart';
 import 'package:cms_chat_app/views/profile_screen.dart';
+import 'package:cms_chat_app/views/settings_screen.dart';
 import 'package:cms_chat_app/views/statistics_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -64,23 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
           colors: [Color(0xFF1E88E5).withOpacity(0.1), Colors.white],
         ),
       ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.settings, size: 64, color: Color(0xFF1E88E5)),
-            SizedBox(height: 16),
-            Text(
-              'Cài đặt',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1E88E5),
-              ),
-            ),
-          ],
-        ),
-      ),
+      child: Center(child: SettingScreen()),
     ),
     Container(
       decoration: BoxDecoration(

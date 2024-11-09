@@ -1,5 +1,6 @@
 import 'package:cms_chat_app/components/confirmation_dialog.dart';
 import 'package:cms_chat_app/components/custom_toast.dart';
+import 'package:cms_chat_app/components/empty_box.dart';
 import 'package:cms_chat_app/components/notification_card.dart';
 import 'package:cms_chat_app/models/notification.dart';
 import 'package:cms_chat_app/services/notification_service.dart';
@@ -22,20 +23,8 @@ Widget buildNotificationList(
       padding: EdgeInsets.all(16),
       separatorBuilder: (context, index) => SizedBox(height: 8),
       builderDelegate: PagedChildBuilderDelegate<NotificationItem>(
-        noItemsFoundIndicatorBuilder: (context) => Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Image.asset('assets/empty_box.png',
-                  fit: BoxFit.contain, width: 100, height: 100),
-              SizedBox(height: 10),
-              Text(
-                'Không có dữ liệu',
-                style: TextStyle(fontSize: 20, color: Colors.grey),
-              ),
-            ],
-          ),
-        ),
+        noItemsFoundIndicatorBuilder: (context) =>
+            Center(child: buidEmptyBox()),
         itemBuilder: (context, notification, index) => NotificationCard(
           notification: notification,
           primaryColor: primaryColor,
