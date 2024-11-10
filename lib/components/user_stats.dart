@@ -48,7 +48,7 @@ class _UserStatWidgetState extends State<UserStatWidget> {
                 Colors.purple[300],
                 "Số lượng thông báo",
                 (_userStats!.notifications.total).toDouble(),
-                'Trung bình: ${_userStats!.notifications.avgDailyCount}/ngày\nTỷ lệ tương tác: ${_userStats!.notifications.sent.total / _userStats!.notifications.read.total}%'),
+                'Trung bình: ${_userStats!.notifications.avgDailyCount}/ngày\nTỷ lệ tương tác: ${(_userStats!.notifications.sent.total / _userStats!.notifications.read.total).toStringAsFixed(2)}%'),
             SizedBox(height: 20),
             buildChartCard(
               "Phân bố vai trò",

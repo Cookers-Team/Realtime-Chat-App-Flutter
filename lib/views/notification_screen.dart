@@ -53,7 +53,6 @@ class _NotificationScreenState extends State<NotificationScreen>
       final data = response.data['content'] as List<dynamic>;
       final items =
           data.map((json) => NotificationItem.fromJson(json)).toList();
-
       final isLastPage = items.length < _pageSize;
       final pagingController =
           status == 1 ? _unreadPagingController : _readPagingController;

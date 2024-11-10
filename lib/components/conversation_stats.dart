@@ -41,7 +41,7 @@ class _ConversationStatWidgetState extends State<ConversationStatWidget> {
                 Colors.deepOrange[300],
                 "Yêu cầu kết bạn",
                 (_conversationStats!.friendships.total).toDouble(),
-                'Trung bình: ${_conversationStats!.friendships.avgDailyCount}/ngày\nTỷ lệ tương tác: ${_conversationStats!.friendships.accepted / _conversationStats!.friendships.pending}%'),
+                'Trung bình: ${_conversationStats!.friendships.avgDailyCount}/ngày\nTỷ lệ tương tác: ${(_conversationStats!.friendships.accepted / _conversationStats!.friendships.pending).toStringAsFixed(2)}%'),
             SizedBox(height: 20),
             buildCustomCard(
                 Icons.messenger_outline_outlined,

@@ -1,4 +1,5 @@
 import 'package:cms_chat_app/views/notification_screen.dart';
+import 'package:cms_chat_app/views/posts_screen.dart';
 import 'package:cms_chat_app/views/profile_screen.dart';
 import 'package:cms_chat_app/views/settings_screen.dart';
 import 'package:cms_chat_app/views/statistics_screen.dart';
@@ -39,23 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
           colors: [Color(0xFF1565C0).withOpacity(0.1), Colors.white],
         ),
       ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.post_add, size: 64, color: Color(0xFF1565C0)),
-            SizedBox(height: 16),
-            Text(
-              'Bài đăng',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFF1565C0),
-              ),
-            ),
-          ],
-        ),
-      ),
+      child: Center(child: PostScreen()),
     ),
     Container(
       decoration: BoxDecoration(
