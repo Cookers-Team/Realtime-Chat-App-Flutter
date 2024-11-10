@@ -1,6 +1,5 @@
 import 'package:cms_chat_app/components/confirmation_dialog.dart';
 import 'package:cms_chat_app/components/rejection_dialog.dart';
-import 'package:cms_chat_app/core/validators.dart';
 import 'package:cms_chat_app/models/post.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
