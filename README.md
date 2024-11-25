@@ -29,8 +29,10 @@ static const String remoteUrl = 'http://localhost:7979';
 
 ### Starting the server
 
+Run the folowing command
+
 ```sh
 flutter run
 ```
 
-This will display a QR code in your terminal. Scan the QR code using the Expo Go app on your mobile device to view the app in action. Alternatively, you can run the app on an Android or iOS emulator.
+Then, select the connected device on which you want to run the app.
